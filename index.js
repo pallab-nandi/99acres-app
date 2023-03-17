@@ -7,7 +7,11 @@ const { connect } = require('./src/utils/db.connection');
 const app = express();
 
 
+require('./routes/index.routes')(app);
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+})
 
 // Server Create
 app.listen(8000, () => {
