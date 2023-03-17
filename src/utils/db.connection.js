@@ -1,12 +1,15 @@
 // import mongoose
 const mongoose = require('mongoose');
 
+// import DB Config
+const dbConfig = require('../configs/db.config');
 
+// mongodb::127.0.0.1/db
 
 // connecting database
 const connect = () => {
   console.log('Initializing Database Connection');
-  mongoose.connect('mongodb+srv://pallab-nandi:root@99acres-app.sa8of2n.mongodb.net/99acres-app')
+  mongoose.connect(dbConfig.prod)
     .then(() => {
       console.log('Database connected successfully');
     })
