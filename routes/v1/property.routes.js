@@ -1,6 +1,6 @@
 // import express
 const express = require('express');
-const propertyController = require('../../src/controllers/Property.controller')
+const propertyController = require('../../src/controllers/properties.controller')
 
 
 // route creating
