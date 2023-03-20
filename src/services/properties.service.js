@@ -6,18 +6,6 @@ class PropertyService {
     this.schema = propertyModel;
   }
 
-  createUser(user) {
-    return this
-      .schema
-      .create(user);
-  }
-
-  fetchUser() {
-    return this
-      .schema
-      .find()
-  }
-
   updateProperty(name, update) {
     return this
       .schema

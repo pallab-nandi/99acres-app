@@ -21,6 +21,6 @@ router.post('/create', (req, res) => {
 router.put('/:id/update', propertyController.updateProperty);
 
 // delete a property
-router.delete('/delete', propertyController.deleteProperty);
+router.delete('/:id/delete', propertyController.deleteProperty);
 
 module.exports = router;
