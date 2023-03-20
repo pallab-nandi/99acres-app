@@ -1,4 +1,4 @@
-const propertyService = require('../services/property.service')
+const propertyService = require('../services/properties.service')
 
 async function createProperty(req, res) {
     const property = req.body;
