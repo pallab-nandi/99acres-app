@@ -1,5 +1,6 @@
 // import express
 const express = require('express');
+const propertyController = require('../../src/controllers/Property.controller')
 
 
 // route creating
@@ -8,14 +9,10 @@ const propertyController = require('../../src/controllers/properties.controller'
 
 // property CRUD operations - CRUD -> Create Read Update Delete
 // fetch all properties
-router.get('/all', (req, res) => {
-  res.send('property GET working')
-});
+router.get('/all', propertyController.fetchProperty);
 
 // create a property
-router.post('/create', (req, res) => {
-  res.send('property POST working')
-});
+router.post('/create', propertyController.createProperty);
 
 // update a property
 router.put('/:id/update', propertyController.updateProperty);
