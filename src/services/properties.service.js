@@ -15,6 +15,19 @@ class PropertyService {
     fetchProperty() {
         return this.schema.find()
     }
+
+  updateProperty(name, update) {
+    return this
+      .schema
+      .findOneAndUpdate(name, update, { returnOriginal: false })
+  }
+
+  deleteProperty(name) {
+    return this
+      .schema
+      .deleteOne(name)
+  }
+
 }
 
 const propertyService = new PropertyService();
