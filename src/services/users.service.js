@@ -18,16 +18,16 @@ class UserService {
       .find()
   }
 
-  updateUser(name, update) {
+  updateUser(id, update) {
     return this
       .schema
-      .findOneAndUpdate(name, update, { returnOriginal: false })
+      .findOneAndUpdate({ _id: id }, update, { returnOriginal: false })
   }
 
-  deleteUser(name) {
+  deleteUser(id) {
     return this
       .schema
-      .deleteOne(name)
+      .deleteOne({ _id: id })
   }
 
 }
