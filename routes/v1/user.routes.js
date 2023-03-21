@@ -14,13 +14,9 @@ router.get('/all', userController.fetchUser);
 router.post('/create', userController.createUser);
 
 // update a user
-router.put('/update', (req, res) => {
-  res.send('user PUT working')
-});
+router.put('/:id/update', userController.updateUser);
 
 // delete a user
-router.delete('/delete', (req, res) => {
-  res.send('user DELETE working')
-});
+router.delete('/:id/delete', userController.deleteUser);
 
 module.exports = router;

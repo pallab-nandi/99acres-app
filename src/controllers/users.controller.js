@@ -31,4 +31,37 @@ async function createUser(req, res) {
     })
 }
 
-module.exports = { fetchUser, createUser }
+async function updateUser(req, res) {
+  const update = req.body;
+  const id = req.params.id;
+  return await userService
+    .updateUser(id, update)
+    .then((data) => {
+      console.log(data);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(200);
+      let returnValues = {};
+      returnValues.status = 'success';
+      returnValues.message = 'User registered successfully';
+      returnValues.data = data;
+      res.end(JSON.stringify(returnValues))
+    })
+}
+
+async function deleteUser(req, res) {
+  const id = req.params.id;
+  return await userService
+    .deleteUser(id)
+    .then((data) => {
+      console.log(data);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(200);
+      let returnValues = {};
+      returnValues.status = 'success';
+      returnValues.message = 'User registered successfully';
+      returnValues.data = data;
+      res.end(JSON.stringify(returnValues))
+    })
+}
+
+module.exports = { fetchUser, createUser, updateUser, deleteUser }
