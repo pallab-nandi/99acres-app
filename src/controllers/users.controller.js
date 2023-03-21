@@ -13,6 +13,15 @@ async function fetchUser(req, res) {
       returnValues.data = data;
       res.end(JSON.stringify(returnValues))
     })
+    .catch((err) => {
+      console.log(err);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(500);
+      res.end(JSON.stringify({
+        status: 'failed',
+        message: 'Server Error'
+      }))
+    })
 }
 
 async function createUser(req, res) {
@@ -28,6 +37,15 @@ async function createUser(req, res) {
       returnValues.message = 'User registered successfully';
       returnValues.data = data;
       res.end(JSON.stringify(returnValues))
+    })
+    .catch((err) => {
+      console.log(err);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(500);
+      res.end(JSON.stringify({
+        status: 'failed',
+        message: 'Server Error'
+      }))
     })
 }
 
@@ -46,6 +64,15 @@ async function updateUser(req, res) {
       returnValues.data = data;
       res.end(JSON.stringify(returnValues))
     })
+    .catch((err) => {
+      console.log(err);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(500);
+      res.end(JSON.stringify({
+        status: 'failed',
+        message: 'Server Error'
+      }))
+    })
 }
 
 async function deleteUser(req, res) {
@@ -61,6 +88,15 @@ async function deleteUser(req, res) {
       returnValues.message = 'User registered successfully';
       returnValues.data = data;
       res.end(JSON.stringify(returnValues))
+    })
+    .catch((err) => {
+      console.log(err);
+      res.setHeader('content-type', 'application/json');
+      res.writeHead(500);
+      res.end(JSON.stringify({
+        status: 'failed',
+        message: 'Server Error'
+      }))
     })
 }
 

@@ -1,5 +1,6 @@
 // import mongoose
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 // user schema
 const userSchema = new mongoose.Schema({
@@ -32,12 +33,28 @@ const userSchema = new mongoose.Schema({
     ],
     default: 'None'
   },
+  roles: {
+    type: [String],
+    enum: [
+      'Admin',
+      'User'
+    ],
+    default: 'User'
+  },
   registeredDate: {
     type: Date,
     default: Date.now
   }
 });
 
+userSchema.pre('save', async (next) => {
+  this.password = await bcrypt.hash(this.password, 8);
+  next();
+})
+
+userSchema.methods.isValidPass = (password) => {
+  return bcrypt.compare(password, this.password);
+}
 
 // Creating User Model
 const userModel = mongoose.model('users', userSchema);
